@@ -10,6 +10,7 @@
 ## Run pipeline
 Snakemake need to be already installed.
 ```shell
+cd muPBWT-1KGP-workflow
 snakemake --cores <cores> --use-conda
 ```
 
