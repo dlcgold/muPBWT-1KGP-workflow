@@ -13,7 +13,7 @@ rule extractVerbose:
     threads: 22
     shell:
         """
-        python ../scripts/time_verbose_extractor.py {wildcards.tool} 4908 0 {wildcards.chr} 100 < {input.time} > {output}
+        python workflow/scripts/time_verbose_extractor.py {wildcards.tool} 4908 0 {wildcards.chr} 100 < {input.time} > {output}
         """
 
 rule mergeExeTime:
@@ -78,5 +78,5 @@ rule makePlot:
     threads: 1
     shell:
         """
-        python ../scripts/results.py {params.input_dir} {params.output_dir} {params.results_dir}
+        python workflow/scripts/results.py {params.input_dir} {params.output_dir} {params.results_dir}
         """
