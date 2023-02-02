@@ -179,7 +179,7 @@ def main(argv):
             tot_se += round(mupbwt_size[i], 2)
             tot_m += make_mem_mupbwt[len(make_mem_mupbwt)-i-1]
             i = i+1
-        f.write(f"\tTotal & 2454 & {tot_s} & {tot_r/i} & {tot_b} & {tot_se} & - & {tot_m} \n \\end{{tabular}}")
+        f.write(f"\tTotal & 2454 & {tot_s} & {tot_r/i} & {round(tot_b, 2)} & {round(tot_se, 2)} & - & {tot_m} \n \\end{{tabular}}")
         f.write("\n")
 
 
@@ -200,7 +200,7 @@ def main(argv):
             tot_se += round(mupbwt_size[i], 2)
             tot_m += round(syllable_size[i], 2)
             i = i+1
-        f.write(f"\tTotal & 2454 & {tot_s} & {int(round(tot_r/i, 0))} & {tot_b} & {tot_se} & {tot_m} \n \\end{{tabular}}")
+        f.write(f"\tTotal & 2454 & {tot_s} & {int(round(tot_r/i, 0))} & {round(tot_b, 2)} & {round(tot_se, 2)} & {tot_m} \n \\end{{tabular}}")
         f.write("\n")
 
 
