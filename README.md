@@ -18,3 +18,6 @@ In `results/` it will be generated some results:
 - in `results/data` some useful CSV files
 - in `results/plots` some plots in PDF format
 - in `results/tables` some tables in LaTeX syntax
+
+## Pipeline overview
+![Pipeline rules](rules.png)
