@@ -41,8 +41,7 @@ rule runPbwtIndexed:
         log = os.path.join(output_folder, "pbwt", "{chr}", "pbwtIndexed.log"),
         time = os.path.join(output_folder, "pbwt", "{chr}", "pbwtIndexed.time"),
     conda: "../envs/pbwt.yml"
-    resources:
-        jobs = 1
+    threads: 1
     shell:
         """
         /usr/bin/time --verbose -o {log.time} pbwt -read {input.panel} -matchIndexed {input.query} > {output.out} 2> {log.log}
