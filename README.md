@@ -15,10 +15,10 @@ cd muPBWT-1KGP-workflow
 snakemake --cores <#cores> --use-conda --resources load=100
 ```
 `--resources load=100` will prevent to use too much RAM for Durbin's Algorithm 5 
-(about 500Gb are still required), running only one instance at a time of that 
+(about 500Gb are still required), running only one job at a time of that 
 rule
 
-In `results/` it will be generated some results:
+In `results/` the pipeline will be generated some results:
 - in `results/data` some useful CSV files
 - in `results/plots` some plots in PDF format
 - in `results/tables` some tables in LaTeX syntax
