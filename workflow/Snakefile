@@ -1,0 +1,32 @@
+from snakemake.utils import min_version
+import os
+
+##### config file #####
+configfile: "config/config.yaml"
+
+##### set minimum snakemake version #####
+min_version("6.4.1")
+
+
+##### include rules #####
+# global variables and download input
+include: "rules/common.smk"
+# PBWT rules
+include: "rules/pbwt.smk"
+# muPBWT rules
+include: "rules/mupbwt.smk"
+# Syllable-PBWT rules 
+include: "rules/syllable.smk"
+# merge results and make plots/tables
+include: "rules/results.smk"
+
+
+##### target rules #####
+rule all:
+    input:
+        os.path.join(results_folder, "plots", "1kgb.pdf"),
+        os.path.join(results_folder, "plots", "1kgb_nodu.pdf"),
+        os.path.join(results_folder, "plots", "components.pdf"),
+        os.path.join(results_folder, "plots", "files_size.pdf"),
+        os.path.join(results_folder, "tables", "mupbwt_build.tex"),
+        os.path.join(results_folder, "tables", "mupbwt_compare.tex")
