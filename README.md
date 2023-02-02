@@ -12,7 +12,7 @@ available at this
 Snakemake need to be already installed.
 ```shell
 cd muPBWT-1KGP-workflow
-snakemake --cores <#cores> --use-conda --resources load=100
+snakemake --cores <num_cores> --use-conda --resources load=100
 ```
 `--resources load=100` will prevent to use too much RAM for Durbin's Algorithm 5 
 (about 500Gb are still required), running only one job at a time of that 
