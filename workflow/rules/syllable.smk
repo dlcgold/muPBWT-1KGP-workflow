@@ -4,7 +4,6 @@ rule downloadSyllablle:
         d=directory(syllable_folder),
         exe=os.path.join(syllable_folder, "server")
     conda: "../envs/compilation.yml"
-    threads: 1
     shell:
         """
         git clone https://github.com/ZhiGroup/Syllable-PBWT {output.d}
@@ -19,7 +18,6 @@ rule makeSyllableInput:
     output:
         vcf =  os.path.join(output_folder, "syllable", "{chr}", "panel_{chr}.vcf"),
     conda: "../envs/bcftools.yml"
-    threads: 22
     shell:
         """
         bcftools view -m2 -M2 -v snps {input.panel} > {output.vcf}
@@ -36,7 +34,6 @@ rule makeSyllable:
     output:
         os.path.join(output_folder, "syllable", "{chr}", "chr_{chr}-save0.txt"),
         os.path.join(output_folder, "syllable", "{chr}", "make.time")
-    threads: 22
     shell:
         """
         cd {params.fol}

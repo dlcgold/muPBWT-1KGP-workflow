@@ -43,7 +43,6 @@ rule download1KGP:
         panel_s = os.path.join(input_folder, "{chr}", "panel_{chr}.txt"),
         query_s = os.path.join(input_folder, "{chr}", "query_{chr}.txt")
     conda: "../envs/bcftools.yml"
-    threads: 22
     shell:
         """
         curl -L {params.url} -s > {output.gz}
@@ -60,7 +59,6 @@ rule makePanel1KGP:
     output:
         panel = os.path.join(input_folder, "{chr}", "panel_{chr}.bcf"), 
     conda: "../envs/bcftools.yml"
-    threads: 22
     shell:
         """
         bcftools view -m2 -M2  -v snps -S {input.panel_s} {input.gz} -Ob  > {output.panel}
@@ -74,7 +72,6 @@ rule makeQuery1KGP:
     output:
         query = os.path.join(input_folder, "{chr}", "query_{chr}.bcf"), 
     conda: "../envs/bcftools.yml"
-    threads: 22
     shell:
         """
         bcftools view -m2 -M2  -v snps -S {input.query_s} {input.gz} -Ob  > {output.query}

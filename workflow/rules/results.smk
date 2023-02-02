@@ -10,7 +10,6 @@ rule extractVerbose:
         time = os.path.join(output_folder, "{tool}", "{chr}", "{file}.time"),
     output:
         os.path.join(output_folder, "{tool}", "{chr}", "{file}.time.csv")
-    threads: 22
     shell:
         """
         python workflow/scripts/time_verbose_extractor.py {wildcards.tool} 4908 0 {wildcards.chr} 100 < {input.time} > {output}
@@ -30,7 +29,6 @@ rule mergeExeTime:
     output:
         os.path.join(results_folder, "data", "exe-time.csv"),
     conda: "../envs/csvkit.yml"
-    threads: 1
     shell:
         """
         csvstack {input} > {output}
@@ -53,7 +51,6 @@ rule mergeTimeMake:
     output:
         os.path.join(results_folder, "data", "make-time.csv"),
     conda: "../envs/csvkit.yml"
-    threads: 1
     shell:
         """
         csvstack {input} > {output}
@@ -75,7 +72,6 @@ rule makePlot:
         os.path.join(results_folder, "tables", "mupbwt_build.tex"),
         os.path.join(results_folder, "tables", "mupbwt_compare.tex"),
     conda: "../envs/results.yml"
-    threads: 1
     shell:
         """
         python workflow/scripts/results.py {params.input_dir} {params.output_dir} {params.results_dir}

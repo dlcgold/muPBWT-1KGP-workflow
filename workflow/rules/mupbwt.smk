@@ -7,7 +7,6 @@ rule makeMupbwt:
         log = os.path.join(output_folder, "mupbwt", "{chr}", "make.log"),
         time = os.path.join(output_folder, "mupbwt", "{chr}", "make.time"),
     conda: "../envs/mupbwt.yml"
-    threads: 22
     shell:
         """
         /usr/bin/time --verbose -o {log.time} mupbwt -i {input.panel} -s {output.ser} &> {log.log}
@@ -24,7 +23,6 @@ rule runMupbwt:
         log = os.path.join(output_folder, "mupbwt", "{chr}", "exe.log"),
         time = os.path.join(output_folder, "mupbwt", "{chr}", "exe.time"),
     conda: "../envs/mupbwt.yml"
-    threads: 22
     shell:
         """
         OMP_NUM_THREADS=1 /usr/bin/time --verbose -o {log.time}  mupbwt -l {input.mupbwt} -q {input.query} -o {output.res} &> {log.log}
