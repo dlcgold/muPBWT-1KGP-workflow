@@ -7,8 +7,6 @@ import os
 import statistics
 import sys
 
-plt.style.use('~/.matplotlib/stylelib/nord-light.mplstyle')
-
 def get_size(file_path, unit='bytes', r = 2):
     file_size = os.path.getsize(file_path)
     exponents_map = {'bytes': 0, 'kb': 1, 'mb': 2, 'gb': 3}
