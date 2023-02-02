@@ -11,7 +11,7 @@
 Snakemake need to be already installed.
 ```shell
 cd muPBWT-1KGP-workflow
-snakemake --cores <cores> --use-conda
+snakemake -j <#jobs> --use-conda
 ```
 
 In `results/` it will be generated some results:
