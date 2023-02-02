@@ -1,12 +1,11 @@
 software_tmp = config["folder"]["software"]
 input_tmp = config["folder"]["input"]
 output_tmp = config["folder"]["output"]
-results_tmp = config["folder"]["res"]
 
 software_folder = f"resources/{software_tmp}"
 input_folder = f"resources/{input_tmp}"
 output_folder = f"resources/{output_tmp}"
-results_folder = f"../{results_tmp}"
+results_folder = config["folder"]["res"]
 
 
 syllable_folder = os.path.join(software_folder, "Syllable-PBWT")
