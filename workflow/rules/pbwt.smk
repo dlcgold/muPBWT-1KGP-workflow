@@ -31,6 +31,7 @@ rule makeQueryPbwt:
         /usr/bin/time --verbose -o {log.query} pbwt -readVcfGT {input.query} -write {output.query} -writeSites {params.query} &> {log.query_l}
         """
 
+##### thanks to https://stackoverflow.com/questions/51977436/restrict-number-of-jobs-by-a-rule-in-snakemake for load trick #####
 rule runPbwtIndexed:
     input:
         panel = os.path.join(output_folder, "pbwt", "{chr}", "panel.pbwt"),

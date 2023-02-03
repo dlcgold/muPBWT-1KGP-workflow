@@ -20,7 +20,7 @@ conda create -c conda-forge -c bioconda -n snakemake snakemake
 cd muPBWT-1KGP-workflow
 snakemake --cores <num_cores> --use-conda --resources load=100
 ```
-The option `--resources load=100` option will avoid using too much RAM for Durbin Algorithm 5 (about 500gb is still needed), running only one job at a time for the rule `runPbwtIndexed`.
+The option `--resources load=100` option will avoid using too much RAM for Durbin Algorithm 5 (about 500gb is still needed), running only one job at a time for the rule `runPbwtIndexed`(thanks [Jan Schreiber](https://stackoverflow.com/questions/51977436/restrict-number-of-jobs-by-a-rule-in-snakemake)).
 
 ## Results 
 The pipeline will generatecd some results:
