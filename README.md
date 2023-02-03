@@ -4,21 +4,28 @@
 [μ-PBWT](https://github.com/dlcgold/muPBWT) against Durbin's 
 [PBWT](https://github.com/richarddurbin/pbwt) and 
 [Syllable-PBWT](https://github.com/ZhiGroup/Syllable-PBWT) on 
-[1000 Genome Project phase 3 data](https://doi.org/10.1038/nature15393),
-available at this 
+[1000 Genome Project (1KGP) phase 3 data](https://doi.org/10.1038/nature15393).
+1KGP data are available at this 
 [link](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/).
 
+## Prerequisite
+Snakemake need to be already installed, for example via
+[conda](https://bioconda.github.io/recipes/snakemake/README.html):
+```shell
+conda create -c conda-forge -c bioconda -n snakemake snakemake
+```
+
 ## Run pipeline
-Snakemake need to be already installed.
 ```shell
 cd muPBWT-1KGP-workflow
 snakemake --cores <num_cores> --use-conda --resources load=100
 ```
-`--resources load=100` will prevent to use too much RAM for Durbin's Algorithm 5 
+The option `--resources load=100` will prevent to use too much RAM for Durbin's Algorithm 5 
 (about 500Gb are still required), running only one job at a time of that 
-rule
+rule.
 
-In `results/` the pipeline will be generated some results:
+## Results 
+The pipeline will generate some results:
 - in `results/data` some useful CSV files
 - in `results/plots` some plots in PDF format
 - in `results/tables` some tables in LaTeX syntax
