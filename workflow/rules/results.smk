@@ -34,7 +34,7 @@ rule mergeExeTime:
         csvstack {input} > {output}
         """
 
-rule mergeTimeMake:
+rule mergeMakeTime:
     input:
         expand(
             os.path.join(output_folder, "pbwt", "{chr}", "panel.time.csv"),
