@@ -20,12 +20,10 @@ conda create -c conda-forge -c bioconda -n snakemake snakemake
 cd muPBWT-1KGP-workflow
 snakemake --cores <num_cores> --use-conda --resources load=100
 ```
-The option `--resources load=100` will prevent to use too much RAM for Durbin's Algorithm 5 
-(about 500Gb are still required), running only one job at a time of that 
-rule.
+The option `--resources load=100` option will avoid using too much RAM for Durbin Algorithm 5 (about 500gb is still needed), running only one job at a time for the rule `runPbwtIndexed`.
 
 ## Results 
-The pipeline will generate some results:
+The pipeline will generatecd some results:
 - in `results/data` some useful CSV files
 - in `results/plots` some plots in PDF format
 - in `results/tables` some tables in LaTeX syntax
