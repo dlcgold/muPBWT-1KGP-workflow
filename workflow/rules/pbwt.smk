@@ -51,7 +51,7 @@ rule runPbwtIndexed:
 
 rule runPbwtDynamic:
     input:
-        panel = os.path.join(output_folder, "pbwt", "{chr}", "query.pbwt"),
+        panel = os.path.join(output_folder, "pbwt", "{chr}", "panel.pbwt"),
         query = os.path.join(output_folder, "pbwt", "{chr}", "query.pbwt"),
     output:
         out = os.path.join(output_folder, "pbwt", "{chr}", "pbwtDynamic.txt"),
